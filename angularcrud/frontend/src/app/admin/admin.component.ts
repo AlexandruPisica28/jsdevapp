@@ -3,6 +3,7 @@ import { NgIf, NgFor } from '@angular/common';
 import { User } from './../models/user';
 import { ApiService } from '../api.service';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-admin',
   imports: [NgIf, NgFor, FormsModule],
@@ -10,6 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './admin.component.css',
 })
 export class AdminComponent implements OnInit {
+  apiURL = environment.API_URL;
   users: any[] = [];
   widthImg: number = 150;
   selectedUser: User = {
@@ -58,6 +60,8 @@ export class AdminComponent implements OnInit {
     formData.append('prenume', this.selectedUser.prenume);
     formData.append('email', this.selectedUser.email);
     formData.append('telefon', this.selectedUser.telefon);
+    formData.append('cnp', this.selectedUser.cnp || '');
+    formData.append('id', this.selectedUser.id?.toString() || '');
     formData.append(
       'datanastere',
       this.selectedUser.datanastere?.toString() || ''
