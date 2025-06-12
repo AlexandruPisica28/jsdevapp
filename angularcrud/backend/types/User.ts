@@ -8,6 +8,7 @@ export interface BasicUser {
     email:string,
     telefon: string,
     dataadaugare?:Date,
+    status?:number, // 0 - inactiv, 1 - activ
     actiune?:string
     cnp: string,
     poza?: string,

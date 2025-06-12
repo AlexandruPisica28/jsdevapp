@@ -20,6 +20,7 @@ export const findAll = (callback: Function) => {
         telefon: row.telefon,
         cnp: row.cnp,
         dataadaugare: row.dataadaugare,
+        status: row.status,
         actiune: "",
         
       };
@@ -85,6 +86,17 @@ export const update = (user: User, callback: Function) => {
 // delete user
 export const deleteUser = (id: number, callback: Function) => {
   const queryString = `DELETE FROM jsusers WHERE id=?`;
+
+  db.query(queryString, [id], (err, result) => {
+    if (err) {
+      callback(err);
+    }
+    callback(null);
+  });
+};
+
+export const statusUser = (id: number, callback: Function) => {
+  const queryString = `UPDATE jsusers SET status=0 WHERE id=?`;
 
   db.query(queryString, [id], (err, result) => {
     if (err) {

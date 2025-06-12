@@ -1,0 +1,23 @@
+<h1>Acasa</h1>
+<h2>{{ descriere }}</h2>
+<p>
+  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque itaque magni
+  consectetur et aliquam illo repellat, eum dolor ab atque saepe. Officia
+  obcaecati at nostrum mollitia numquam dolorem similique necessitatibus!
+</p>
+
+<h3>Formular schimba descriere</h3>
+<input type="text" [(ngModel)]="descriere" />
+
+<p>{{ showImage }}</p>
+<img
+  *ngIf="showImage"
+  [src]="myimg"
+  alt=""
+  srcset=""
+  style="max-width: 250px"
+/>
+<p>Urmeaza buton</p>
+<button (click)="salut()">Start</button>
+
+<button (click)="showImg()">Afiseaza imagine</button>
